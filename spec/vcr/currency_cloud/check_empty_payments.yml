@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"DariuszU","apikey":"63830AEF4DBFAD18"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 559fd2e1-b29a-4abe-aa7d-9e43570236ca
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 17 Nov 2018 19:21:40 GMT
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - 8a5ef603-4df8-4976-a418-cb57e9d721f7
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"token":"33d4cdbb-6974-4881-b395-d274926e4da2"}'
+    http_version: 
+  recorded_at: Sat, 17 Nov 2018 19:21:41 GMT
+- request:
+    method: get
+    uri: https://coolpay.herokuapp.com/api/payments
+    body:
+      encoding: UTF-8
+      string: '""'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 33d4cdbb-6974-4881-b395-d274926e4da2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 17 Nov 2018 19:21:41 GMT
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - 63a58657-4a1b-46b8-8220-3fd8853b7b6d
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"payments":[]}'
+    http_version: 
+  recorded_at: Sat, 17 Nov 2018 19:21:41 GMT
+recorded_with: VCR 4.0.0
