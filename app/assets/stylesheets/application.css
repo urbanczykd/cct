@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.info-top{
+  position:relative;
+  float:right;
+}

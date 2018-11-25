@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :friendships, :only => [:create, :destroy]
+  resources :users, :only => [:index] do
+    resources :payments, :only => [:index, :new, :create] do
+      member do
+        get 'check'
+      end
+    end
+  end
+  devise_for :users
+
+  root to: 'home#welcome'
 end

@@ -9,8 +9,6 @@ http_interactions:
     headers:
       Content-Type:
       - application/json
-      Authorization:
-      - Bearer 1b55c0fd-2798-4eef-af74-b242b54b5cad
   response:
     status:
       code: 200
@@ -21,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 25 Nov 2018 15:04:31 GMT
+      - Sun, 25 Nov 2018 15:18:00 GMT
       Content-Length:
       - '48'
       Content-Type:
@@ -31,38 +29,38 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - 676e9a51-ceef-4c5c-aa00-095147875c65
+      - f30ce22c-69f6-4454-a82e-f74c500c184f
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"token":"11d2e009-279e-4f0d-8047-3ed23b19c456"}'
+      string: '{"token":"d1734fca-ad29-46ee-b054-3a189a5afe8a"}'
     http_version: 
-  recorded_at: Sun, 25 Nov 2018 15:04:31 GMT
+  recorded_at: Sun, 25 Nov 2018 15:18:00 GMT
 - request:
-    method: get
+    method: post
     uri: https://coolpay.herokuapp.com/api/payments
     body:
       encoding: UTF-8
-      string: '""'
+      string: '{"payment":{"amount":10.22,"currency":"GBP","recipient_id":"7e559235-c05f-4c9c-9914-84c09173ca85"}}'
     headers:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 11d2e009-279e-4f0d-8047-3ed23b19c456
+      - Bearer d1734fca-ad29-46ee-b054-3a189a5afe8a
   response:
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
     headers:
       Connection:
       - keep-alive
       Server:
       - Cowboy
       Date:
-      - Sun, 25 Nov 2018 15:04:31 GMT
+      - Sun, 25 Nov 2018 15:18:00 GMT
       Content-Length:
-      - '15'
+      - '167'
       Content-Type:
       - application/json; charset=utf-8
       Cache-Control:
@@ -70,12 +68,14 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - 7b1d92ea-cd47-4523-9090-2044357193dc
+      - ca61daf3-77bb-4984-83f4-219439bd7c07
+      Location:
+      - "/api/payments/31ba0157-6140-46df-9d48-71db841927f0"
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"payments":[]}'
+      string: '{"payment":{"status":"processing","recipient_id":"7e559235-c05f-4c9c-9914-84c09173ca85","id":"31ba0157-6140-46df-9d48-71db841927f0","currency":"GBP","amount":"10.22"}}'
     http_version: 
-  recorded_at: Sun, 25 Nov 2018 15:04:31 GMT
+  recorded_at: Sun, 25 Nov 2018 15:18:01 GMT
 recorded_with: VCR 4.0.0

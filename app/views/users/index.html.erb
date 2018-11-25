@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<h1>Friends</h1>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>RecipientID</th>
+      <th>Add Friend</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.email %></td>
+        <td><%= friend.recipient_id %></td>
+        <td><%= number_with_precision(friend.amount, :precision =>2) %></td>
+        <td><%= link_to 'Remove Friend', friendship_path(:id => friend.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<h1>Users</h1>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>RecipientID</th>
+      <th>Add Friend</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.recipient_id %></td>
+        <td><%= number_with_precision(user.amount, :precision =>2) %></td>
+        <td><%= link_to "Add Friend", friendships_path(:friend_id => user.id), method: :post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

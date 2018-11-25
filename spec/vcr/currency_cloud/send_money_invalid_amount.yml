@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 17 Nov 2018 19:21:34 GMT
+      - Sun, 25 Nov 2018 15:15:17 GMT
       Content-Length:
       - '48'
       Content-Type:
@@ -29,38 +29,38 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - bf086fd6-6e5f-42b8-be79-230bf0f7ee6d
+      - 2dbbee1a-3d25-4f52-94b9-564730bf7ea3
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"token":"559fd2e1-b29a-4abe-aa7d-9e43570236ca"}'
+      string: '{"token":"22de3178-484e-47c1-a177-8bfd9a409f71"}'
     http_version: 
-  recorded_at: Sat, 17 Nov 2018 19:21:35 GMT
+  recorded_at: Sun, 25 Nov 2018 15:15:17 GMT
 - request:
     method: post
-    uri: https://coolpay.herokuapp.com/api/recipients
+    uri: https://coolpay.herokuapp.com/api/payments
     body:
       encoding: UTF-8
-      string: '{"recipient":{"name":"john"}}'
+      string: '{"payment":{"amount":{"amount":10.22},"currency":"GBP","recipient_id":"7e559235-c05f-4c9c-9914-84c09173ca85"}}'
     headers:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 559fd2e1-b29a-4abe-aa7d-9e43570236ca
+      - Bearer 22de3178-484e-47c1-a177-8bfd9a409f71
   response:
     status:
-      code: 201
-      message: Created
+      code: 422
+      message: Unprocessable Entity
     headers:
       Connection:
       - keep-alive
       Server:
       - Cowboy
       Date:
-      - Sat, 17 Nov 2018 19:21:34 GMT
+      - Sun, 25 Nov 2018 15:15:17 GMT
       Content-Length:
-      - '73'
+      - '36'
       Content-Type:
       - application/json; charset=utf-8
       Cache-Control:
@@ -68,14 +68,12 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - 13f67599-ea53-4586-9251-a592d94e205f
-      Location:
-      - "/api/recipients/27434033-c653-4fe0-b80c-1d5ac37abbee"
+      - eb2b38df-a650-4648-9ca2-6d5266168444
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"recipient":{"name":"john","id":"27434033-c653-4fe0-b80c-1d5ac37abbee"}}'
+      string: '{"errors":{"amount":["is invalid"]}}'
     http_version: 
-  recorded_at: Sat, 17 Nov 2018 19:21:35 GMT
+  recorded_at: Sun, 25 Nov 2018 15:15:18 GMT
 recorded_with: VCR 4.0.0

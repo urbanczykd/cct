@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 17 Nov 2018 19:21:40 GMT
+      - Sun, 25 Nov 2018 15:05:58 GMT
       Content-Length:
       - '48'
       Content-Type:
@@ -29,12 +29,12 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - efda4bc8-3334-4059-9e19-2f017ceeec50
+      - ce798661-d68e-436c-b012-45c362fbf85a
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"token":"4996ab77-d998-461b-8f3b-d6fb199c36e2"}'
+      string: '{"token":"6a5b700f-53e4-4bea-9765-761a319b44ca"}'
     http_version: 
-  recorded_at: Sat, 17 Nov 2018 19:21:41 GMT
+  recorded_at: Sun, 25 Nov 2018 15:05:58 GMT
 recorded_with: VCR 4.0.0

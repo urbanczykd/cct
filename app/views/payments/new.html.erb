@@ -1,0 +1,31 @@
+<h1>New Payment</h1>
+
+<%= form_with(model: [current_user, @payment], local: true) do |form| %>
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+      <ul>
+      <% @payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :friend %>
+    <%= form.select(:friend_id, current_user.friends.pluck(:email, :id)) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, :step => 0.01 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit value: "Send money" %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', users_path %>
