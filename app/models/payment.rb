@@ -9,14 +9,17 @@ class Payment < ApplicationRecord
     response = CurrencyCloud.new.list_payments
     response = response.select{|data| data["id"] == self.merchant_id}
     response = OpenStruct.new(response.inject())
-    if response.status == "paid"
-      self.status = response.status
-      self.save
+    self.status = response.status
+    if self.status_changed? && self.status == "paid"
+      self.save!
       add_money_to_friend
+    elsif self.status_changed? && self.status == "failed"
+      give_money_back
+    elsif self.status_changed?
+      self.save!
     end
     response.status
   end
-
 
   private
 
@@ -33,9 +36,9 @@ class Payment < ApplicationRecord
       # confirmation from a merchat and we can add it only if status is success
       user   = User.find_by_id(self.user_id)
       user.amount  = user.amount.to_f - self.amount.to_f
+      # bang will raise error and trigger rollback
       user.save!
     end
-
   end
 
   def add_money_to_friend
@@ -44,5 +47,9 @@ class Payment < ApplicationRecord
     friend.save!
   end
 
+  def give_money_back
+    user.amount = user.amount.to_f + self.amount.to_f
+    user.save!
+  end
 
 end

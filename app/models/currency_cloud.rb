@@ -35,6 +35,7 @@ class CurrencyCloud
     def with_token(&block)
       self.class.headers 'Authorization': "Bearer #{token}"
       # here should be good place for catching any exeptions and handling them
+      # and i don't have time for most importnt thing here :|
       response = block.call
     end
 

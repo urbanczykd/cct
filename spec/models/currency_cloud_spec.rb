@@ -51,12 +51,17 @@ RSpec.describe CurrencyCloud, :type => :model do
     end
   end
 
-  context "check_payments" do
-    it "has confirmation_token" do
-      VCR.use_cassette("currency_cloud/check_empty_payments") do
-        expect(CurrencyCloud.new.check_payments).to eq([])
+  context "list_payments" do
+    it "should return a list of all paments" do
+      VCR.use_cassette("currency_cloud/list_payments") do
+        response = CurrencyCloud.new.list_payments
+        expect(response.class).to be(Array)
+        expect(response.count).to eq(6)
+        first_payment = response.first
+        expect(first_payment["status"]).to eq("failed")
+        expect(first_payment["amount"]).to eq("10.22")
       end
     end
   end
-
+# error handling :/
 end
